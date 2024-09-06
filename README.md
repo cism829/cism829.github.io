@@ -1,2 +1,6 @@
 # cism829.github.io
 Dev Portfolio
+
+## CSC-372 Assignments
+### Homework 1:
+In the Upper Right Corner there is a tab to the homework 1 assignment, shoul be the left most green button that should take you to the index page

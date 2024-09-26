@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="script.js" defer></script>
+    <!-- <script src="script.js" defer></script> -->
     <script src="script2.js" defer></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
     <title>Meal Plan</title>
 </head>
 
@@ -14,37 +15,59 @@
     <section class="nav">
         <div class="nav-content">
             <a href="index.html">Home Page</a>
-            <p> hi</p>
+
             <a href="meal-plan.html">Meal Plans</a>
         </div>
     </section>
+
     <section id="options">
-        <h2>Restaurant</h2>
-        <h3>dish</h3>
-        <p>price</p>
-        <h3>dish</h3>
-        <p>price: $12.60</p>
-        <h3>dish</h3>
-        <p>$40</p>
+        <div class="recom">
+            <div class="recom-items" id="options">
 
-        <h2>Restaurant</h2>
-        <h3>dish</h3>
-        <p>price: $40.63</p>
-        <h3>dish</h3>
-        <p>price</p>
-        <h3>dish</h3>
-        <p>price</p>
+                <h2>Don Gala</h2>
+                <h3>Pizza</h3>
+                <p>12.50</p>
+                <button class="crtbtn" data-item="Pizza" data-price=12.50>Add to Cart</button>
 
-        <h2>Restaurant</h2>
-        <h3>dish</h3>
-        <p>price</p>
-        <h3>dish</h3>
-        <p>price</p>
-        <h3>dish</h3>
-        <p>price</p>
+                <h3>6pc Wings</h3>
+                <p>10</p>
+                <button class="crtbtn" data-item="6pc Wings" data-price=10>Add to Cart</button>
 
+
+                <h3>Cheese Fries</h3>
+                <p>7.50</p>
+                <button class="crtbtn" data-item="Cheese Fries" data-price=7.50>Add to Cart</button>
+
+                <h2>Chipotle</h2>
+                <h3>Burrito Bowl</h3>
+                <p>13.75</p>
+                <button class="crtbtn" data-item="Burrito Bowl" data-price=13.75>Add to Cart</button>
+
+                <h3>Tacos</h3>
+                <p>11.45</p>
+                <button class="crtbtn" data-item="Tacos" data-price=11.45>Add to Cart</button>
+
+                <h3>Quesadillas</h3>
+                <p>11.90</p>
+                <button class="crtbtn" data-item="Quesadillas" data-price=11.90>Add to Cart</button>
+            </div>
+            <div class="recom-items" id="cart">
+                <h1>Cart</h1>
+                <ul id="cart-items">
+
+                </ul>
+                <p id="total"> Total: </p>
+
+            </div>
+        </div>
 
     </section>
+
+    <footer>
+        <p>All of the images were found online, I do not own any of them.<br>
+            Some of the descriptions are taken from the websites themselves, others are paraphrased.
+        </p>
+    </footer>
 </body>
 
 </html>

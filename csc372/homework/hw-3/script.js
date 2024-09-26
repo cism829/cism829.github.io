@@ -6,6 +6,11 @@ for (let index = 0; index < gallery.length; index++) {
   element.addEventListener('dblclick', revertBack);
 }
 
+/**
+ * function to make image either big or small
+ * apparently the datatype for event is called mouseEvent 
+ * @param {MouseEvent} event 
+ */
 function expandImage(event) {
   const clickedImage = event.currentTarget;
   const currentBigImage = document.querySelector('.big');
@@ -26,7 +31,12 @@ for (let i = 0; i < infoSections.length; i++) {
 }
 
 
-//function may be redundant but its just the way I got it to work to revert to normal
+/**
+ * function may be redundant but its just the way I got it to work to revert to normal
+ * used dblclick to return picture to small size 
+ * @param {MouseEvent} event 
+ * 
+ */
 function revertBack(event) {
   const image = event.currentTarget;
   const currentBigImage = document.querySelector('.big');

@@ -1,7 +1,37 @@
+body {}
+
+h3 {
+    font-weight: bold;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    /* background-color: aquamarine; */
+}
+
 #player-container {
     display: flex;
     flex-direction: column;
-    /* gap: 20px; */
+    border: 1px solid black;
+
+    border-radius: 15px;
+    border-color: black;
+    width: 75%;
+    /* background-color: aqua; */
+}
+
+#computer-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+
+    border-radius: 15px;
+    border-color: black;
+    width: 75%;
     /* background-color: aqua; */
 }
 
@@ -11,14 +41,51 @@
     justify-content: space-evenly;
     width: 100%;
     /* background-color: bisque; */
-    
+
 }
 
-.turn{
+#computer-choice {
     display: flex;
+    flex-direction: row;
     justify-content: center;
+    width: 100%;
+    /* background-color: bisque; */
+
+}
+
+.turn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    
+
     /* background-color: blue; */
 }
-h3{
-    font-weight: bold;
+#animate {
+    /* position: relative; */
+    background-color: blueviolet;
+}
+
+#animation {
+    width: 150px;
+    height: 150px;
+    background: red;
+    position: relative;
+}
+#highlight {
+    border: 10px solid red;
+}
+
+#blue {
+    border: 10px solid blue;
+}
+
+
+
+#small {
+    width: 40px;
+    height: 40px;
+    position: absolute;
 }

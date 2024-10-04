@@ -1,0 +1,24 @@
+#player-container {
+    display: flex;
+    flex-direction: column;
+    /* gap: 20px; */
+    /* background-color: aqua; */
+}
+
+#choices {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    /* background-color: bisque; */
+    
+}
+
+.turn{
+    display: flex;
+    justify-content: center;
+    /* background-color: blue; */
+}
+h3{
+    font-weight: bold;
+}

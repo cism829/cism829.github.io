@@ -3,10 +3,10 @@ Dev Portfolio website cism829.github.io
 
 ## CSC-372 Assignments
 In the Upper Right Corner, there is a tab that links to the subfolder for all assignments, the button should be grey
-### Homework 3:
-In the Upper Right Corner, there is a tab for the homework 3 assignment, it should be the light blue button that should take you to the index page for the assignment
+### Homework 4:
+In the Upper Right Corner, there is a tab for the homework 4 assignment, it should be the light blue button that should take you to the index page for the assignment
 
-*Note: I'll be honest, not my best work*
+
 
 
 ## CSC-372 Project

@@ -4,8 +4,10 @@ const paper = document.querySelector('.paper');
 const scissors = document.querySelector('.scissors');
 const question = document.getElementById('default');
 const display = document.querySelector('#outcome-container');
+let reset = document.querySelector('#reset');
 
-let victor = document.getElementById('#victor');
+
+let victor = document.getElementById('victor');
 
 const startBtn = document.querySelector('#shuffle');
 startBtn.addEventListener("click", animate);
@@ -13,6 +15,10 @@ startBtn.addEventListener("click", animate);
 rock.addEventListener("click", playerChoice);
 paper.addEventListener("click", playerChoice);
 scissors.addEventListener("click", playerChoice);
+
+rock.addEventListener("dblclick", clear);
+paper.addEventListener("dblclick", clear);
+scissors.addEventListener("dblclick", clear);
 
 
 const comChoice = document.querySelector('#shuffling');
@@ -29,11 +35,14 @@ cScissors.classList.add('scissors');
 
 
 
+
 let playerScore = 0;
 let computerScore = 0;
 let tieScore = 0;
 
-//couldnt find another way to do this 
+
+
+
 function resetChoice() {
     rock.id = "";
     paper.id = "";
@@ -140,23 +149,35 @@ function compDes() {
 function outcome() {
     const player = document.querySelector('#highlight');
     const computer = document.querySelector('#blue');
+    const playerElem = document.getElementById('error');
+
+    if (!player) {
+        if (!playerElem) {
+            const para = document.createElement('p');
+            para.id = "error"
+            para.textContent = "Please select an option!";
+            display.appendChild(para);
+        }
+        return;
+    }
+    else if (playerElem){
+        const play = document.getElementById('error');
+        play.remove();
+    }
+
 
     if ((player.classList.contains('paper') && computer.classList.contains('rock')) ||
         (player.classList.contains('rock') && computer.classList.contains('scissors')) ||
         (player.classList.contains('scissors') && computer.classList.contains('paper'))) {
 
-        console.log("YOU WIN");
-
         playerScore++;
-        console.log("player: " + playerScore);
 
-        if(!victor){
+        if (!victor) {
             const victorHead = document.createElement('h1');
-            victorHead.id="victor";  
-            victor = victorHead; 
+            victorHead.id = "victor";
+            victor = victorHead;
             display.appendChild(victor);
         }
-        console.log(victor);
         victor.textContent = "YOU WIN !!!";
 
     }
@@ -166,31 +187,26 @@ function outcome() {
         (computer.classList.contains('paper') && player.classList.contains('rock')) ||
         (computer.classList.contains('scissors') && player.classList.contains('paper'))) {
 
-        console.log("YOU LOSE");
         computerScore++;
-        console.log("com: " + computerScore);
 
-        if(!victor){
+        if (!victor) {
             const victorHead = document.createElement('h1');
-            victorHead.id="victor";  
-            victor = victorHead; 
+            victorHead.id = "victor";
+            victor = victorHead;
             display.appendChild(victor);
         }
-        console.log(victor);
         victor.textContent = "COMPUTER WINS !!!";
     }
 
     else {
         tieScore++;
-        console.log("tie: " + tieScore);
 
-        if(!victor){
+        if (!victor) {
             const victorHead = document.createElement('h1');
-            victorHead.id="victor";  
-            victor = victorHead; 
+            victorHead.id = "victor";
+            victor = victorHead;
             display.appendChild(victor);
         }
-        console.log(victor);
         victor.textContent = "THERE'S A TIE !!!";
     }
 
@@ -202,16 +218,15 @@ function outcome() {
 function scoreCreate() {
     const scoreBox = document.querySelector('#scoreBox');
 
-   
-    if (!scoreBox) {
-        console.log("it does not exist");
-        const title = document.createElement('h2');
-        title.textContent = "Scores: "
-        display.appendChild(title);
 
+    if (!scoreBox) {
         const boxScore = document.createElement('div');
         boxScore.id = "scoreBox";
         display.appendChild(boxScore);
+
+        const title = document.createElement('h2');
+        title.textContent = "Scores: "
+        boxScore.appendChild(title);
     }
 
     const boxScore = document.querySelector('#scoreBox');
@@ -244,6 +259,41 @@ function scoreCreate() {
     playPara.textContent = "player: " + playerScore;
     comPara.textContent = "com: " + computerScore;
     tiePara.textContent = "ties: " + tieScore;
+
+    if (!reset) {
+        const resetBtn = document.createElement('button');
+        resetBtn.id = "reset"
+        reset = resetBtn;
+        resetBtn.textContent = "Reset Scores";
+        boxScore.appendChild(resetBtn);
+
+        reset.addEventListener("click", resetScores);
+    }
 }
+
+function resetScores() {
+    playerScore = 0;
+    computerScore = 0;
+    tieScore = 0;
+
+    // Select the score elements again
+    const playPara = document.querySelector('#playerScore');
+    const comPara = document.querySelector('#computerScore');
+    const tiePara = document.querySelector('#tieScore');
+
+    // Update the text content of the score paragraphs
+    playPara.textContent = "player: " + playerScore;
+    comPara.textContent = "com: " + computerScore;
+    tiePara.textContent = "ties: " + tieScore;
+}
+
+function clear(event){
+    console.log("clear");
+    const removeHighlight = event.currentTarget;
+
+    removeHighlight.id = "";
+
+}
+
 
 

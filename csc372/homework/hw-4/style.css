@@ -1,5 +1,13 @@
 body {}
 
+h1{
+    font-weight: bold;
+    font-size: 30pt;
+}
+h2{
+    font-weight: bold;
+    font-size: 20pt;
+}
 h3 {
     font-weight: bold;
 }
@@ -9,6 +17,7 @@ h3 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-height: 20%;
     gap: 100px;
     /* background-color: aquamarine; */
 }
@@ -31,8 +40,18 @@ h3 {
 
     border-radius: 15px;
     border-color: black;
-    width: 75%;
+    width: 200px;
+    height: 255px;
     /* background-color: aqua; */
+}
+#outcome-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    min-height: 200px;
+    border-radius: 15px;
+    border-color: black;
+    width: 75%;
 }
 
 #choices {
@@ -75,11 +94,11 @@ h3 {
     position: relative;
 }
 #highlight {
-    border: 10px solid red;
+    border: 5px solid red;
 }
 
 #blue {
-    border: 10px solid blue;
+    border: 5px solid blue;
 }
 
 

@@ -33,14 +33,9 @@ cRock.classList.add('rock');
 cPaper.classList.add('paper');
 cScissors.classList.add('scissors');
 
-
-
-
 let playerScore = 0;
 let computerScore = 0;
 let tieScore = 0;
-
-
 
 
 function resetChoice() {

@@ -1,5 +1,6 @@
-body {}
-
+body{
+    font-family: sans-serif;
+}
 h1{
     font-weight: bold;
     font-size: 30pt;
@@ -90,10 +91,6 @@ h3 {
     
 
     /* background-color: blue; */
-}
-#animate {
-    /* position: relative; */
-    background-color: blueviolet;
 }
 
 

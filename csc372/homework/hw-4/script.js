@@ -4,9 +4,8 @@ const paper = document.querySelector('.paper');
 const scissors = document.querySelector('.scissors');
 const question = document.getElementById('default');
 const display = document.querySelector('#outcome-container');
+
 let reset = document.querySelector('#reset');
-
-
 let victor = document.getElementById('victor');
 
 const startBtn = document.querySelector('#shuffle');
@@ -38,18 +37,29 @@ let computerScore = 0;
 let tieScore = 0;
 
 
+/**
+ * Function to reset the hightlighted player choices per turn
+ */
 function resetChoice() {
     rock.id = "";
     paper.id = "";
     scissors.id = "";
 }
 
+
+/**
+ * Function to reset the hightlighted computer choices per turn
+ */
 function resetComChoice() {
     cRock.id = "";
     cPaper.id = "";
     cScissors.id = "";
 }
 
+/**
+ * Used to highlight the players selection
+ * @param {MouseEvent} event 
+ */
 function playerChoice(event) {
     const thro = event.currentTarget;
 
@@ -65,7 +75,9 @@ function playerChoice(event) {
     }
 }
 
-
+/**
+ * overall function for shuffling for the computer choices
+ */
 function animate() {
     resetComChoice();
 
@@ -77,7 +89,9 @@ function animate() {
     const images = [cRock, cPaper, cScissors];
     let index = 0;
 
-
+    /**
+     * manually manipulating the elemets to imitate shuffling, displays one image pers 300ms for roughly 3seconds
+     */
     function showNextImage() {
 
         if (comChoice.firstChild) {
@@ -92,12 +106,15 @@ function animate() {
 
     showNextImage();
 
-
     const shuffleDuration = 5000;
     const shuffleInterval = 300;
     const totalImages = Math.floor(shuffleDuration / shuffleInterval);
     let count = 0;
 
+    /**
+     * just the duration of the shuffle and keeps track of image
+     * calls another function to determine desicion
+     */
     function shuffle() {
         showNextImage();
         count++;
@@ -113,6 +130,9 @@ function animate() {
 
 }
 
+/**
+ * uses a random number from 1 to 3 to choose what the computer picks
+ */
 function compDes() {
 
     if (comChoice.firstChild) {
@@ -141,6 +161,10 @@ function compDes() {
 
 }
 
+/**
+ * determines the outcome of the game 
+ * @returns  if player does have a choice, it stops
+ */
 function outcome() {
     const player = document.querySelector('#highlight');
     const computer = document.querySelector('#blue');
@@ -155,7 +179,7 @@ function outcome() {
         }
         return;
     }
-    else if (playerElem){
+    else if (playerElem) {
         const play = document.getElementById('error');
         play.remove();
     }
@@ -209,10 +233,12 @@ function outcome() {
 
 }
 
-
+/**
+ * creates the scoreboard for the games 
+ * couldnt figure out how to make a json in order to keep the scores after page was reloaded
+ */
 function scoreCreate() {
     const scoreBox = document.querySelector('#scoreBox');
-
 
     if (!scoreBox) {
         const boxScore = document.createElement('div');
@@ -226,12 +252,11 @@ function scoreCreate() {
 
     const boxScore = document.querySelector('#scoreBox');
 
-    // Check if the score paragraphs already exist
     let playPara = document.querySelector('#playerScore');
     let comPara = document.querySelector('#computerScore');
     let tiePara = document.querySelector('#tieScore');
 
-    // Create paragraphs if they don't exist
+
     if (!playPara) {
         playPara = document.createElement('p');
         playPara.id = 'playerScore';
@@ -250,7 +275,6 @@ function scoreCreate() {
         boxScore.appendChild(tiePara);
     }
 
-    // Update the text content of the score paragraphs
     playPara.textContent = "player: " + playerScore;
     comPara.textContent = "com: " + computerScore;
     tiePara.textContent = "ties: " + tieScore;
@@ -266,6 +290,10 @@ function scoreCreate() {
     }
 }
 
+
+/**
+ * when reset button is pressed, all scores reset to zero
+ */
 function resetScores() {
     playerScore = 0;
     computerScore = 0;
@@ -282,7 +310,11 @@ function resetScores() {
     tiePara.textContent = "ties: " + tieScore;
 }
 
-function clear(event){
+/**
+ * if player double clicks on the selection it gets rid of the selection
+ * @param {MouseEvent} event 
+ */
+function clear(event) {
     console.log("clear");
     const removeHighlight = event.currentTarget;
 

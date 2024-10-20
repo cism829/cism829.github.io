@@ -163,7 +163,7 @@ function compDes() {
 
 /**
  * determines the outcome of the game 
- * @returns  if player does have a choice, it stops
+ * @returns  if player doesn't have a choice, it stops
  */
 function outcome() {
     const player = document.querySelector('#highlight');
